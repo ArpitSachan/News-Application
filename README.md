@@ -1,4 +1,6 @@
 # News Application
 
-A Flutter news application.
+This application shows the current news from all over the world.
+
+
 

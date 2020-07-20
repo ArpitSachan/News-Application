@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:newsapplication/pages/newsList.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(App());
-}
+import 'ViewModels/NewsArticleListViewModel.dart';
 
-class App extends StatelessWidget{
+void main() => runApp(App());
+
+class App extends StatelessWidget {
+
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
+
     return MaterialApp(
-      title: "News App",
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Latest News")
-        ),
-        body: Text("Latest News here"),
-      )
+        title: "News App",
+        home:
+        ChangeNotifierProvider(
+            create: (_) => NewsArticleListViewModel(),
+            child: NewsList()
+        )
     );
+
   }
+
 }
+

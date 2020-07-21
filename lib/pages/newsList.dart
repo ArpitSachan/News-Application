@@ -3,8 +3,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapplication/ViewModels/NewsArticleListViewModel.dart';
+import 'package:newsapplication/ViewModels/NewsArticleViewModel.dart';
 import 'package:newsapplication/widget/newsListPage.dart';
 import 'package:provider/provider.dart';
+
+import 'NewsArticleDetails.dart';
 
 class NewsListPage extends StatefulWidget {
 
@@ -23,16 +26,16 @@ class _NewsListPageState extends State<NewsListPage> {
     Provider.of<NewsArticleListViewModel>(context, listen: false).populateTopHeadlines();
   }
 
-  Widget _buildList(NewsArticleListViewModel vm){
-    switch(vm.loadingStatus){
-      case LoadingStatus.searching:
-        return Align(child: CircularProgressIndicator());
-      case LoadingStatus.empty:
-        return Align(child: Text("No results found"));
-      case LoadingStatus.completed:
-        return Align(child: NewsList(articles: vm.articles,));
-    }
-  }
+//  Widget _buildList(NewsArticleListViewModel vm){
+//    switch(vm.loadingStatus){
+//      case LoadingStatus.searching:
+//        return Align(child: CircularProgressIndicator());
+//      case LoadingStatus.empty:
+//        return Align(child: Text("No results found"));
+//      case LoadingStatus.completed:
+//        return Align(child: NewsList(articles: vm.articles,));
+//    }
+//  }
   @override
   Widget build(BuildContext context) {
 
@@ -41,7 +44,9 @@ class _NewsListPageState extends State<NewsListPage> {
     return Scaffold(
         appBar: AppBar(
             centerTitle: true,
-              title: Text("Latest News"),
+              title: Text("Latest News".toUpperCase(), style: TextStyle(
+                fontWeight: FontWeight.bold
+              ),),
           ),
         body: Column(children: <Widget>[
 
@@ -65,9 +70,9 @@ class _NewsListPageState extends State<NewsListPage> {
               )
             ),
           ),
-//          Expanded(
-//              child:vm.articles.isEmpty? Text("No results found"): NewsList(articles: vm.articles))
-        _buildList(vm),
+          Expanded(
+              child:vm.articles.isEmpty? Text("No results found"): NewsList(articles: vm.articles))
+//        _buildList(vm),
         ],)
     );
 

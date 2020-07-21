@@ -12,11 +12,15 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.white,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
         title: "News App",
         home:
         ChangeNotifierProvider(
             create: (_) => NewsArticleListViewModel(),
-            child: NewsList()
+            child: NewsListPage()
         )
     );
 

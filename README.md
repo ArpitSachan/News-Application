@@ -40,3 +40,10 @@ Run the app
 ```
 $ flutter run -v
 ```
+
+## Thanks
+
+**Arpit Sachan** © 2019+, Released under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
+
+> GitHub [@ArpitSachan](https://github.com/ArpitSachan) &nbsp;&middot;&nbsp;
+> LinkedIn [@arpitsachan936340117](https://www.linkedin.com/in/arpit-sachan-936340117/)
